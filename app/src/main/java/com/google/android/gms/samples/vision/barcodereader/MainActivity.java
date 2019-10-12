@@ -21,8 +21,11 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -37,7 +40,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private CompoundButton autoFocus;
     private CompoundButton useFlash;
     private TextView statusMessage;
-    private TextView barcodeValue;
+    private WebView barcodeValue;
 
     private static final int RC_BARCODE_CAPTURE = 9001;
     private static final String TAG = "BarcodeMain";
@@ -48,7 +51,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         statusMessage = (TextView)findViewById(R.id.status_message);
-        barcodeValue = (TextView)findViewById(R.id.barcode_value);
+        barcodeValue = (WebView)findViewById(R.id.barcode_value);
+        barcodeValue.setWebViewClient(new WebViewClient());
 
         autoFocus = (CompoundButton) findViewById(R.id.auto_focus);
         useFlash = (CompoundButton) findViewById(R.id.use_flash);
@@ -103,7 +107,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     statusMessage.setText(R.string.barcode_success);
-                    barcodeValue.setText(barcode.displayValue);
+                    Toast.makeText(this,barcode.displayValue,Toast.LENGTH_LONG).show();
+                    barcodeValue.loadUrl(barcode.displayValue);
                     Log.d(TAG, "Barcode read: " + barcode.displayValue);
                 } else {
                     statusMessage.setText(R.string.barcode_failure);

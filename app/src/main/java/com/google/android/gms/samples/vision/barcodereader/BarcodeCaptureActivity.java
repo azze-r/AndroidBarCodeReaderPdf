@@ -28,10 +28,8 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -49,6 +47,7 @@ import com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOver
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
 
@@ -57,7 +56,7 @@ import java.io.IOException;
  * rear facing camera. During detection overlay graphics are drawn to indicate the position,
  * size, and ID of each barcode.
  */
-public final class BarcodeCaptureActivity extends AppCompatActivity implements BarcodeGraphicTracker.BarcodeUpdateListener {
+public final class BarcodeCaptureActivity extends Activity implements BarcodeGraphicTracker.BarcodeUpdateListener {
     private static final String TAG = "Barcode-reader";
 
     // intent request code to handle updating play services if needed.
@@ -106,9 +105,6 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         gestureDetector = new GestureDetector(this, new CaptureGestureListener());
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
-        Snackbar.make(mGraphicOverlay, "Tap to capture. Pinch/Stretch to zoom",
-                Snackbar.LENGTH_LONG)
-                .show();
     }
 
     /**
