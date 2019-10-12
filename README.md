@@ -11,7 +11,7 @@ To test the project, install app on the phone, and open sample_pdf.pdf file from
 
 here u can find some screenshoots about the app
 
-<img src="https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture2.jp" width="400" height="710">
+![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture1.jpg)
 ![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture1.jpg){:height="400px" width="710px"}
 
 ![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture3.jpg){:height="400px" width="710px"}
