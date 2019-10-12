@@ -345,6 +345,7 @@ public final class BarcodeCaptureActivity extends Activity implements BarcodeGra
                 best = barcode;
                 break;
             }
+
             float dx = x - barcode.getBoundingBox().centerX();
             float dy = y - barcode.getBoundingBox().centerY();
             float distance = (dx * dx) + (dy * dy);  // actually squared distance
@@ -427,6 +428,9 @@ public final class BarcodeCaptureActivity extends Activity implements BarcodeGra
 
     @Override
     public void onBarcodeDetected(Barcode barcode) {
-        //do something with barcode data returned
+        Intent data = new Intent();
+        data.putExtra(BarcodeObject, barcode);
+        setResult(CommonStatusCodes.SUCCESS, data);
+        finish();
     }
 }

@@ -16,6 +16,9 @@
 package com.google.android.gms.samples.vision.barcodereader;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.UiThread;
 
 import com.google.android.gms.samples.vision.barcodereader.ui.camera.GraphicOverlay;
