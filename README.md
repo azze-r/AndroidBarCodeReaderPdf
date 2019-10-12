@@ -9,3 +9,10 @@ support pdf file only for now.
 To test the project, install app on the phone, and open sample_pdf.pdf file from root project, and then scan the QR code with this app.
 
 
+here u can find some screenshoots about the app
+
+![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture2.jpg)
+
+![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture1.jpg)
+
+![alt text](https://github.com/boblinux/AndroidBarCodeReader/blob/master/capture3.jpg)
